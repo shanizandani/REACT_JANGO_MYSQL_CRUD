@@ -1,25 +1,43 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import DepartmentList from './DepartmentList';
+import EmployeeList from './EmployeeList';
+// import { AppProvider } from './CounterContext.js/AppContext';
+import { EmployeeProvider } from './CounterContext.js/EmployeeContext';
+import { DepartmentProvider } from './CounterContext.js/DepartmentContext';
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+  
+    <DepartmentProvider>
+    <EmployeeProvider>
+      
+      <div>
+        <h1>Employee Management App</h1>
+        <DepartmentList />
+        <EmployeeList />
+      </div>
+      </EmployeeProvider>
+    </DepartmentProvider>
+   
   );
 }
 
 export default App;
+
+// import React from 'react';
+// import ReactDOM from 'react-dom';
+// import App from './App';
+// import { DepartmentProvider } from './DepartmentContext';
+// import { EmployeeProvider } from './EmployeeContext';
+
+// ReactDOM.render(
+//   <React.StrictMode>
+//     <DepartmentProvider>
+//       <EmployeeProvider>
+//         <App />
+//       </EmployeeProvider>
+//     </DepartmentProvider>
+//   </React.StrictMode>,
+//   document.getElementById('root')
+// );
